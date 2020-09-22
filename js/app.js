@@ -94,16 +94,6 @@ makeNavLinksSmooth( );
 
 });
     
-// const links= document.querySelectorAll(".menu__link");
-// for (let i = 0; i < links.length; i++) {
-//     links[i].addEventListener('click' ,function(){
-//         const current = document.querySelectorAll(".sectionActive");
-//         // current[0].ClassName = current[0].ClassName.replace("sectionActive","");
-//         const sectionId=links[i].getAttribute("id");
-//         const section = document.getElementById(sectionId);
-//         section.classList.add('sectionActive');
-//     });
-// }
 
 
 
