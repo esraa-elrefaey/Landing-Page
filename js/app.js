@@ -26,11 +26,15 @@ const navbarList  = document.querySelector("#navbar__list");
 const listOfSection= document.querySelectorAll("section");
 
 
+
 // build the nav
 
 listOfSection.forEach((section , index) => {
 	const newList = document.createElement('li');
-	newList.innerHTML += `<a  href="#section${index + 1}" class="menu__link" id=my${section.id}>${section.dataset.nav}</a>`;
+    const name = section.dataset.nav
+     
+	newList.innerHTML += `<a  href="#section${index + 1}" class="menu__link" id="${name}" >${name}</a>`;
+
     navbarList.appendChild(newList);
 
   });
@@ -47,11 +51,35 @@ const removeActiveSection = (section) => {
     
 };
 
+
+
 // adding the active class
 const addActiveSection = (condition, section) => {
     if(condition){
         section.classList.add('sectionActive');
-        section.style.cssText = "border: 7px solid #000;";
+        section.style.cssText = "border: 7px solid #fff;";
+
+            //return section =>num Section active//
+             const aSection = section.getAttribute('data-nav');  
+             const links= document.querySelectorAll('.menu__link');
+          for (link of links ) {
+
+            //return links =>"section i "//
+             const aLink =link.getAttribute('id');
+
+             // remove the active class
+             link.classList.remove('active');
+
+             // active section related the same link 
+           if (aSection == aLink ) {
+
+            // adding the active class
+            link.classList.add('active');
+            
+           }
+          }
+          
+       
     };
 };
 
@@ -61,15 +89,20 @@ const sectionsActive = () => {
     listOfSection.forEach(section => {
         const elementOffset = offsetSection(section);
 
-        isInView = () => elementOffset < 130 && elementOffset >= -130;
+
+        isInView = () => elementOffset < 150 && elementOffset >= -150;
 
         removeActiveSection(section);
         
         addActiveSection(isInView(),section);
+     
     });
+
 };
 
 window.addEventListener('scroll' ,sectionsActive);
+
+
 
 
 //smoothly scroll when click links
@@ -92,7 +125,20 @@ const makeNavLinksSmooth = ( ) => {
 makeNavLinksSmooth( );
 
 
+
 });
+
+    
+
+
+
+
+
+
+
+
+
+ 
     
 
 
