@@ -81,8 +81,16 @@ section {
     text-decoration: none;
     color: #000;
 }
+a.active{
+     background: #333;
+    color: #faf;
+    transition: ease 0.3s all;
+    border: 3px solid #bea;
 
-.navbar__menu .menu__link:hover  {
+
+}
+
+.navbar__menu .menu__link:hover   {
     background: #333;
     color: #fff;
     transition: ease 0.3s all;
